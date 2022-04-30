@@ -33,7 +33,7 @@
             $dsn["port"] = $db["port"];
             $dsn["dbname"] = ltrim($db["path"], "/");
             $dsn["user"] = $db["user"];
-            $dsn["password"] = $db["password"];
+            $dsn["password"] = $db["pass"];
         }
         
         $pdo = new PDO(

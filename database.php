@@ -4,8 +4,8 @@
     $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
     $dotenv->safeLoad();
 
-    function getDSN($dbms, $host, $port, $dbname) {
-        return "{$dbms}:host={$host};port={$port};dbname={$dbname}";
+    function getDSN($dbms, $host, $port, $dbname, $user, $password) {
+        return "{$dbms}:host={$host};port={$port};dbname={$dbname};user={$user};password={$password}";
     }
 
     function query($string, $params=[]) {
@@ -21,10 +21,10 @@
             "dbms" => $_ENV["DBMS"],
             "host" => $_ENV["HOST"],
             "port" => $_ENV["PORT"],
-            "dbname" => $_ENV["DBNAME"]
+            "dbname" => $_ENV["DBNAME"],
+            "user" => $_ENV["USER"],
+            "password" => $_ENV["PASSWORD"]
         );
-        $username = $_ENV["USERNAME"];
-        $password = $_ENV["PASSWORD"];
         
         if(isset($_ENV["DATABASE_URL"])) {
             $db = parse_url($_ENV["DATABASE_URL"]);
@@ -32,11 +32,13 @@
             $dsn["host"] = $db["host"];
             $dsn["port"] = $db["port"];
             $dsn["dbname"] = ltrim($db["path"], "/");
+            $dsn["user"] = $db["user"];
+            $dsn["password"] = $db["password"];
         }
         
         $pdo = new PDO(
-            getDSN($dsn["dbms"], $dsn["host"], $dsn["port"], $dsn["dbname"]),
-            $username, $password
+            getDSN($dsn["dbms"], $dsn["host"], $dsn["port"],
+                $dsn["dbname"], $dsn["user"], $dsn["password"])
         );
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     } catch (\Throwable $th) {

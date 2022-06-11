@@ -1,5 +1,5 @@
 <?php
-    require_once("./vendor/autoload.php");
+    require_once(__DIR__ . "/vendor/autoload.php");
 
     $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
     $dotenv->safeLoad();
@@ -42,6 +42,6 @@
         );
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     } catch (\Throwable $th) {
-        die("Cannot connect to the Database.");
+        die("Cannot connect to the Database.<br>" . $th->getMessage());
     }
 ?>

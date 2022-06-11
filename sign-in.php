@@ -52,6 +52,7 @@
 ?>
 <?php require_once("./_start.php"); ?>
 <a class="link-button" href="./sign-up.php"><< Sign Up</a>
+<a class="link-button" href="./reset-password.php">Reset Password</a>
 <h1>Sign In</h1>
 <em>Already have an account? Sign in and gain access!</em>
 <br>

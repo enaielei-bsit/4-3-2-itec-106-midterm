@@ -133,3 +133,46 @@ br {
 .message li {
     margin-left: 2em;
 }
+
+table {
+    width: 100%;
+    font-size: 0.75em;
+    word-wrap: break-word;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+th, td {
+    border: 1px solid black;
+    vertical-align: top;
+    padding: 0.15em;
+}
+
+th {
+    background: black;
+    color: white;
+}
+
+th:not(:last-child) {
+    border-right-color: white;
+}
+
+input[type=checkbox] {
+    cursor: pointer;
+}
+
+.control-button {
+    font-size: 0.8em;
+    text-decoration: none;
+    border: 1px solid rgba(128, 128, 128, 0.199);
+    background-color: rgba(211, 211, 211, 0.164);
+    color: black;
+    padding: 0.2em 0.5em;
+    border-radius: 0.15em;
+    cursor: pointer;
+}
+
+.controls {
+    margin-bottom: 1em;
+    text-align: right;
+}

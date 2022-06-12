@@ -45,4 +45,12 @@
             $array[$key] = $callback($key, $val);
         }
     }
+
+    // Source: https://stackoverflow.com/a/30021074/14733693
+    function getFullHost() {
+        $protocole = $_SERVER['REQUEST_SCHEME'].'://';
+        $host = $_SERVER['HTTP_HOST'] . '/';
+        $project = explode('/', $_SERVER['REQUEST_URI'])[1];
+        return $protocole . $host . $project;
+    }
 ?>

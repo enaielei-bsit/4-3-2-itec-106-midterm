@@ -1,6 +1,5 @@
 <?php
-    // Source: https://stackoverflow.com/a/30021074/14733693
-    $project = getFullHost();
+    $project = $_SERVER['HOST'] == 'localhost' ? getFullHost() : "";
 ?>
 <!DOCTYPE html>
 <html lang="en">

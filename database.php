@@ -18,12 +18,12 @@
 
     try {
         $dsn = array(
-            "dbms" => $_ENV["DBMS"],
-            "host" => $_ENV["HOST"],
-            "port" => $_ENV["PORT"],
-            "dbname" => $_ENV["DBNAME"],
-            "user" => $_ENV["USER"],
-            "password" => $_ENV["PASSWORD"]
+            "dbms" => $_ENV["DBMS"] ?? "",
+            "host" => $_ENV["HOST"] ?? "",
+            "port" => $_ENV["PORT"] ?? "",
+            "dbname" => $_ENV["DBNAME"] ?? "",
+            "user" => $_ENV["USER"] ?? "",
+            "password" => $_ENV["PASSWORD"] ?? ""
         );
         
         if(isset($_ENV["DATABASE_URL"])) {
